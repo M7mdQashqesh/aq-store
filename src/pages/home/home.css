@@ -1,0 +1,55 @@
+.Home .landing {
+  margin-top: 30px;
+}
+
+.Home .landing .container img {
+  max-width: 100%;
+}
+
+.Home .some-products .container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.Home .some-products .container h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 30px;
+}
+
+.Home .some-products .container .productItems {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 50px;
+}
+
+.Home .some-products .container .productItems .productItem img {
+  max-width: 100%;
+  border-radius: 5px;
+}
+
+.Home .some-products .container .productItems .productItem .info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.Home .some-products .container .productItems .productItem button.add-to-cart {
+  all: unset;
+  margin-top: 20px;
+  border: 2px solid #2887bf;
+  color: #2887bf;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.Home .some-products .container .productItems .productItem button.add-to-cart:hover {
+  background-color: #2887bf;
+  color: white;
+}

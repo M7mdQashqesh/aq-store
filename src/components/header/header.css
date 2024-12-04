@@ -1,0 +1,258 @@
+header.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+}
+
+header.header .container .logo {
+  width: 60px;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  header.header .container .logo {
+    width: 40px;
+  }
+}
+
+header.header .container .logo img {
+  max-width: 100%;
+}
+
+header.header .container nav.navbar ul {
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(128, 128, 128, 0.47);
+  border-radius: 30px;
+  padding: 0 10px;
+  box-shadow: 2px 4px 10px 5px rgba(201, 201, 201, 0.5);
+}
+
+@keyframes makeBlur {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes showSidebar {
+  0% {
+    left: -400px;
+  }
+  100% {
+    left: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  header.header .container nav.navbar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(1.5px);
+  }
+
+  header.header .container nav.navbar.show {
+    display: block;
+    animation: makeBlur 0.8s forwards;
+  }
+
+  header.header .container nav.navbar ul {
+    display: block;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    align-items: flex-start;
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-height: 100%;
+    min-width: 80%;
+    background-color: white;
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  header.header .container nav.navbar ul.show {
+    animation: showSidebar 0.8s forwards;
+  }
+}
+
+header.header .container nav.navbar ul li:first-of-type {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header.header .container nav.navbar ul li:first-of-type {
+    display: flex;
+    position: absolute;
+    z-index: 100;
+    right: 15px;
+    top: 0px;
+    font-size: 35px;
+    cursor: pointer;
+  }
+}
+
+header.header .container nav.navbar ul li.sidebar-img {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header.header .container nav.navbar ul li.sidebar-img {
+    position: absolute;
+    top: -30px;
+    left: 20px;
+    max-width: 100%;
+  }
+
+  header.header .container nav.navbar ul li.sidebar-img.show {
+    display: block;
+  }
+}
+
+header.header .container nav.navbar ul li img {
+  max-width: 80%;
+}
+
+header.header .container nav.navbar ul li a {
+  display: block;
+  padding: 10px 20px;
+  font-weight: 600;
+  color: #1881c3;
+  transition: 0.3s;
+}
+
+@media (max-width: 767px) {
+  header.header .container nav.navbar ul li a {
+    position: relative;
+    top: 110px;
+    font-size: 18px;
+    padding: 20px;
+  }
+}
+
+header.header .container nav.navbar ul li a:hover {
+  color: #0c7441;
+}
+
+header.header .container .cart {
+  cursor: pointer;
+}
+
+header.header .container .menu-bars {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  header.header .container .menu-bars {
+    display: block;
+  }
+}
+
+header.header .container .back-of-checkout {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(1.5px);
+}
+
+header.header .container .back-of-checkout.show {
+  display: block;
+  animation: makeBlur 0.8s forwards;
+}
+
+header.header .container .back-of-checkout .checkout {
+  position: fixed;
+  right: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 30%;
+  padding: 0 20px;
+  background-color: white;
+  border-left: 1px solid rgba(0, 0, 0, 0.4);
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes showCartBar {
+  0% {
+    right: -400px;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+header.header .container .back-of-checkout .checkout.show {
+  animation: showCartBar 0.8s forwards;
+}
+
+header.header .container .back-of-checkout .checkout .close-cart {
+  display: flex;
+  position: absolute;
+  left: 15px;
+  top: 0px;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+header.header .container .back-of-checkout .checkout a:first-of-type {
+  display: block;
+  margin: 50px 0 30px 0;
+  font-size: 30px;
+  font-weight: 600;
+  color: #103178;
+  transition: 0.3s;
+}
+
+header.header .container .back-of-checkout .checkout a:hover:first-of-type {
+  color: #ff9923;
+}
+
+header.header .container .back-of-checkout .checkout p:nth-of-type(2) {
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 5px 10px;
+  color: #777;
+  font-size: 14px;
+}
+
+header.header .container .back-of-checkout .checkout > div {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 767px) {
+  header.header .container .back-of-checkout .checkout > div {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+header.header .container .back-of-checkout .checkout a:last-of-type {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px 0;
+  border-radius: 30px;
+  background-color: #ff9923;
+  color: white;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+header.header .container .back-of-checkout .checkout a:hover:last-of-type {
+  background-color: #103178;
+}
