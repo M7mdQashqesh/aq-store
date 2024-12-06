@@ -10,38 +10,67 @@ const Home = () => {
   return (
     <div className="Home">
       <Header />
-      {/* Start Landing Page */}
+      {/* Start Landing */}
       <div className="landing">
         <div className="container">
-          <img
-            className="large-landing"
-            src="/landing-largeScreen.svg"
-            alt="landing image"
-          />
+          <div className="img"></div>
         </div>
       </div>
-      {/* End Landing Page */}
+      {/* End Landing */}
+      {/* Start Features */}
+      <div className="features">
+        <div className="container">
+          <div className="feature">
+            <i className="fa-solid fa-truck-fast"></i>
+            <div className="info">
+              <span>Fast and safe shipping</span>
+              <span>For all products</span>
+            </div>
+          </div>
+          <div className="feature">
+            <i className="fa-regular fa-credit-card"></i>
+            <div className="info">
+              <span>Payment methods</span>
+              <span>Cash on delivery</span>
+            </div>
+          </div>
+          <div className="feature">
+            <i className="fa-solid fa-headset"></i>
+            <div className="info">
+              <span>Support</span>
+              <span>24/7 dedicated support</span>
+            </div>
+          </div>
+          <div className="feature last-feature">
+            <i className="fa-solid fa-sack-dollar"></i>
+            <div className="info">
+              <span>Return Policy</span>
+              <span>If the products have problems</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* End Features */}
       {/* Start Some Product */}
       <div className="some-products">
         <div className="container">
           <h2>Top Picks</h2>
           <div className="productItems">
-          {Products.slice(0, 4).map((product) => (
-            <div key={product.id} className="productItem">
-              <img
-                src={product.product_image}
-                alt="product"
-              />
-              <div className="info">
-                <span className="nameOfProduct">{product.product_name}</span>
-                <span className="price">{product.product_price}</span>
+            {Products.slice(0, 4).map((product) => (
+              <div key={product.id} className="productItem">
+                <img src={product.product_image} alt="product" />
+                <div className="info">
+                  <span className="nameOfProduct">{product.product_name}</span>
+                  <span className="price">{product.product_price}</span>
+                </div>
+                <p className="description">{product.product_description}</p>
+                <button className="add-to-cart">Add to Cart</button>
               </div>
-              <p className="description">{product.product_description}</p>
-              <button className="add-to-cart">Add to Cart</button>
-            </div>
-          ))}
+            ))}
           </div>
-          <button className="show-all" onClick={() => navigate("/products")}>Show All Products</button>
+          <button className="show-all" onClick={() => navigate("/products")}>
+            Show All Products
+          </button>
         </div>
       </div>
       {/* End Some Product */}

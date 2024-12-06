@@ -27,6 +27,7 @@ header.header .container nav.navbar ul {
   border-radius: 30px;
   padding: 0 10px;
   box-shadow: 2px 4px 10px 5px rgba(201, 201, 201, 0.5);
+  background-color: white;
 }
 
 @keyframes makeBlur {
