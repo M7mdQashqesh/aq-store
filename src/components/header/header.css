@@ -58,6 +58,7 @@ header.header .container nav.navbar ul {
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(1.5px);
+    z-index: 100;
   }
 
   header.header .container nav.navbar.show {
@@ -168,6 +169,7 @@ header.header .container .back-of-checkout {
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(1.5px);
+  z-index: 100
 }
 
 header.header .container .back-of-checkout.show {

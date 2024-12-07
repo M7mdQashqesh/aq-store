@@ -58,7 +58,9 @@ const Home = () => {
           <div className="productItems">
             {Products.slice(0, 4).map((product) => (
               <div key={product.id} className="productItem">
-                <img src={product.product_image} alt="product" />
+                <div className="image">
+                  <img src={product.product_image} alt="product" />
+                </div>
                 <div className="info">
                   <span className="nameOfProduct">{product.product_name}</span>
                   <span className="price">{product.product_price}</span>
