@@ -30,7 +30,7 @@
   .AllProducts .container .search {
     flex-direction: column;
     gap: 15px;
-  align-items: flex-end;
+    align-items: flex-end;
   }
 }
 
@@ -120,12 +120,7 @@
   width: 70%;
 }
 
-.Home
-  .some-products
-  .container
-  .productItems
-  .productItem
-  button.add-to-cart:hover {
+.AllProducts .container .products .productItem button.add-to-cart:hover {
   background-color: #2887bf;
   color: white;
 }

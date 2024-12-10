@@ -3,9 +3,18 @@ import "./allProducts.css";
 import { Products } from "../../../public/products";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
+import { useState } from "react";
 
 const AllProducts = () => {
   const navigate = useNavigate();
+  const [searchTerm, setSearchTerm] = useState("");
+
+  // Filter products based on search term
+  const filteredProducts = searchTerm
+    ? Products.filter((product) =>
+        product.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+    : Products;
 
   return (
     <div className="AllProducts">
@@ -18,13 +27,18 @@ const AllProducts = () => {
         </div>
 
         <div className="search">
-          <input type="search" placeholder="Search Here"/>
-          
-          {<p>{Products.length} Products found</p>}
+          <input
+            type="search"
+            placeholder="Search Here"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+
+          {<p>{filteredProducts.length} Products found</p>}
         </div>
 
         <div className="products">
-          {Products.map((product) => {
+          {filteredProducts.map((product) => {
             return (
               <div key={product.id} className="productItem">
                 <div className="image">
@@ -41,7 +55,7 @@ const AllProducts = () => {
           })}
         </div>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };
