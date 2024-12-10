@@ -12,9 +12,7 @@ const Home = () => {
       <Header />
       {/* Start Landing */}
       <div className="landing">
-        <div className="container">
-          <div className="img"></div>
-        </div>
+        <div className="img"></div>
       </div>
       {/* End Landing */}
       {/* Start Features */}

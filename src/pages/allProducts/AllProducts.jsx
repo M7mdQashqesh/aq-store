@@ -38,21 +38,27 @@ const AllProducts = () => {
         </div>
 
         <div className="products">
-          {filteredProducts.map((product) => {
-            return (
-              <div key={product.id} className="productItem">
-                <div className="image">
-                  <img src={product.product_image} alt="product" />
+          {filteredProducts.length !== 0 ? (
+            filteredProducts.map((product) => {
+              return (
+                <div key={product.id} className="productItem">
+                  <div className="image">
+                    <img src={product.product_image} alt="product" />
+                  </div>
+                  <div className="info">
+                    <span className="nameOfProduct">
+                      {product.product_name}
+                    </span>
+                    <span className="price">{product.product_price}</span>
+                  </div>
+                  <p className="description">{product.product_description}</p>
+                  <button className="add-to-cart">Add to Cart</button>
                 </div>
-                <div className="info">
-                  <span className="nameOfProduct">{product.product_name}</span>
-                  <span className="price">{product.product_price}</span>
-                </div>
-                <p className="description">{product.product_description}</p>
-                <button className="add-to-cart">Add to Cart</button>
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <p className="no-items">No Products found</p>
+          )}
         </div>
       </div>
       <Footer />

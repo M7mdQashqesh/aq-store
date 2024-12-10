@@ -124,3 +124,10 @@
   background-color: #2887bf;
   color: white;
 }
+
+.AllProducts .container .products .no-items {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #777;
+  margin: 64px 0 64px 8px;
+}
