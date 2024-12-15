@@ -165,7 +165,7 @@
   padding: 0 8px;
 }
 
-.Home .some-products .container .productItems .productItem button.add-to-cart {
+.Home .some-products .container .productItems .productItem button.details {
   all: unset;
   margin: 20px auto 5px;
   border: 2px solid #2887bf;
@@ -185,7 +185,7 @@
   .container
   .productItems
   .productItem
-  button.add-to-cart:hover {
+  button.details:hover {
   background-color: #2887bf;
   color: white;
 }

@@ -64,7 +64,12 @@ const Home = () => {
                   <span className="price">{product.product_price}</span>
                 </div>
                 <p className="description">{product.product_description}</p>
-                <button className="add-to-cart">Add to Cart</button>
+                <button
+                    className="details"
+                    onClick={() => navigate(`/product/${product.id}`)}
+                  >
+                    View Details
+                  </button>
               </div>
             ))}
           </div>

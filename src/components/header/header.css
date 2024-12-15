@@ -173,6 +173,7 @@ header.header .container .menu-bars {
 header.header .container .back-of-checkout {
   display: none;
   position: absolute;
+  z-index: 100;
   top: 0;
   left: 0;
   height: 100vh;
