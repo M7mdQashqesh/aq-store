@@ -146,7 +146,7 @@ header.header .container nav.navbar ul li a {
 @media (max-width: 767px) {
   header.header .container nav.navbar ul li a {
     position: relative;
-    top: 110px;
+    top: 150px;
     font-size: 18px;
     padding: 20px;
   }

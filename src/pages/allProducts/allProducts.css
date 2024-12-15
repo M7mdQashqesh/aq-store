@@ -105,10 +105,10 @@
   padding: 0 8px;
 }
 
-@media (max-width:767px) {
-.AllProducts .container .products .productItem .description {
-  font-size: 14px;
-}
+@media (max-width: 767px) {
+  .AllProducts .container .products .productItem .description {
+    font-size: 14px;
+  }
 }
 
 .AllProducts .container .products .productItem button.details {
@@ -126,13 +126,13 @@
   width: 70%;
 }
 
-@media (max-width:767px) {
-.AllProducts .container .products .productItem button.details {
-  padding: 10px 10px;
-  width: 85%;
-  margin-top: 30px;
-  font-size: 14px;
-}
+@media (max-width: 767px) {
+  .AllProducts .container .products .productItem button.details {
+    padding: 10px 10px;
+    width: 85%;
+    margin-top: 30px;
+    font-size: 14px;
+  }
 }
 
 .AllProducts .container .products .productItem button.details:hover {
