@@ -32,7 +32,7 @@ const ProductDetail = () => {
           <div className="details">
             <h2 className="price">{product.product_price}</h2>
             <h3 className="product-name">{product.product_name}</h3>
-            <p className="description">{product.product_description}</p>
+            <p className="description">{product.product_long_description}</p>
             <div className="quantity-container">
               <p>Quantity: </p>
               <div className="quantity">
