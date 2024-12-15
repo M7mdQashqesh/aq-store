@@ -1,0 +1,119 @@
+.product-details > .container {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.product-details > .container .product {
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .product-details > .container .product {
+    flex-direction: column;
+  }
+}
+
+.product-details > .container .product > div {
+  flex: 1;
+}
+
+.product-details > .container .product > div.image {
+  max-height: 550px;
+  max-width: 520px;
+}
+
+.product-details > .container .product > div.image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-details > .container .product > div.details {
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .product-details > .container .product > div.details {
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+.product-details > .container .product > div.details h2.price {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -2.5px;
+}
+
+.product-details > .container .product > div.details h3.product-name {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.product-details > .container .product > div.details p.description {
+  color: #777;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.product-details > .container .product > div.details .quantity-container p {
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+
+.product-details
+  > .container
+  .product
+  > div.details
+  .quantity-container
+  .quantity {
+  border: 1px solid black;
+  padding: 4px 5px;
+  display: flex;
+  width: 110px;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+
+.product-details
+  > .container
+  .product
+  > div.details
+  .quantity-container
+  .quantity
+  button {
+  all: unset;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+  padding: 0 5px;
+}
+
+.product-details
+  > .container
+  .product
+  > div.details
+  .quantity-container
+  .quantity
+  button:active {
+  background-color: rgba(128, 128, 128, 0.3);
+}
+
+.product-details > .container .product > div.details .add-to-cart {
+  all: unset;
+  margin-top: 20px;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  font-size: 14px;
+  background-color: #231f20;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product-details > .container .product > div.details .add-to-cart:hover {
+  background-color: #302a2c;
+}

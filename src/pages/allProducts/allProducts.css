@@ -105,7 +105,7 @@
   padding: 0 8px;
 }
 
-.AllProducts .container .products .productItem button.add-to-cart {
+.AllProducts .container .products .productItem button.details {
   all: unset;
   margin: 20px auto 5px;
   border: 2px solid #2887bf;
@@ -120,7 +120,7 @@
   width: 70%;
 }
 
-.AllProducts .container .products .productItem button.add-to-cart:hover {
+.AllProducts .container .products .productItem button.details:hover {
   background-color: #2887bf;
   color: white;
 }
@@ -130,4 +130,15 @@
   font-weight: bold;
   color: #777;
   margin: 64px 0 64px 8px;
+  width: 400px;
+}
+
+@media (max-width: 767px) {
+  .AllProducts .container .products .no-items {
+    width: 80%;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
 }
