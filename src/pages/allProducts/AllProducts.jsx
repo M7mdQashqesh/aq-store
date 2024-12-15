@@ -39,28 +39,30 @@ const AllProducts = () => {
 
         <div className="products">
           {filteredProducts.length !== 0 ? (
-            filteredProducts.map((product) => {
-              return (
-                <div key={product.id} className="productItem">
-                  <div className="image">
-                    <img src={product.product_image} alt="product" />
+            filteredProducts
+              .sort((a, b) => a.product_name.localeCompare(b.product_name))
+              .map((product) => {
+                return (
+                  <div key={product.id} className="productItem">
+                    <div className="image">
+                      <img src={product.product_image} alt="product" />
+                    </div>
+                    <div className="info">
+                      <span className="nameOfProduct">
+                        {product.product_name}
+                      </span>
+                      <span className="price">{product.product_price}</span>
+                    </div>
+                    <p className="description">{product.product_description}</p>
+                    <button
+                      className="details"
+                      onClick={() => navigate(`/product/${product.id}`)}
+                    >
+                      View Details
+                    </button>
                   </div>
-                  <div className="info">
-                    <span className="nameOfProduct">
-                      {product.product_name}
-                    </span>
-                    <span className="price">{product.product_price}</span>
-                  </div>
-                  <p className="description">{product.product_description}</p>
-                  <button
-                    className="details"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  >
-                    View Details
-                  </button>
-                </div>
-              );
-            })
+                );
+              })
           ) : (
             <p className="no-items">No products match your search criteria.</p>
           )}
