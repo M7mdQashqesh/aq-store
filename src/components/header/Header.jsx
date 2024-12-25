@@ -6,17 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-  const navigate = useNavigate("");
 
-  useEffect(() => {
-    // Prevent scrolling when the cart is open
-    document.body.style.overflow = showCart ? "hidden" : "auto";
-    return () => {
-      // Cleanup to ensure scroll is enabled when the component unmounts
-      document.body.style.overflow = "auto";
-    };
-  }, [showCart]);
+  const navigate = useNavigate("");
 
   useEffect(() => {
     // Prevent scrolling when the sidebar is open
@@ -57,33 +48,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <ShoppingCartOutlinedIcon
-          onClick={() => {
-            setShowCart(!showCart);
-          }}
-          className="cart"
-        />
-        <div
-          className={showCart ? "back-of-checkout show" : "back-of-checkout"}
-        >
-          <div className={showCart ? "checkout show" : "checkout"}>
-            <p className="close-cart" onClick={() => setShowCart(!showCart)}>
-              &times;
-            </p>
-            <a href="/cart">
-              Shopping cart <sup>(0)</sup>
-            </a>
-            <p>Hi</p>
-            <div>
-              <div>
-                <span>Total: </span>
-                <span>0 ₪</span>
-              </div>
-              <p>Remove all items</p>
-            </div>
-            <a href="/cart/checkout">Checkout</a>
-          </div>
-        </div>
+        <ShoppingCartOutlinedIcon className="cart" />
       </div>
     </header>
   );
