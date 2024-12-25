@@ -9,7 +9,7 @@
 }
 
 .Home .landing .img {
-  background-image: url("../../../public/landing-largeScreen.svg");
+  background-image: url("/landing-largeScreen.svg");
   background-size: cover;
   height: 400px;
   background-position: bottom;

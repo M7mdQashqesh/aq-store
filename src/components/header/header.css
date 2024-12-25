@@ -234,6 +234,10 @@ header.header .container .back-of-checkout .checkout a:hover:first-of-type {
   color: #ff9923;
 }
 
+header.header .container .back-of-checkout .checkout a:first-of-type sup {
+  font-size: 15px;
+}
+
 header.header .container .back-of-checkout .checkout p:nth-of-type(2) {
   border: 1px solid rgba(128, 128, 128, 0.2);
   padding: 5px 10px;

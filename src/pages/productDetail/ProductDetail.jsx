@@ -1,7 +1,7 @@
 import "./productDetail.css";
 import { Products } from "../../../public/products";
 import Header from "../../components/header/Header";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import Alert from "@mui/material/Alert";
@@ -23,40 +23,7 @@ const ProductDetail = () => {
     }
   };
 
-  const [itemsInCart, setItemsInCart] = useState(() => {
-    const savedItems = localStorage.getItem("items");
-    return savedItems ? JSON.parse(savedItems) : [];
-  });
-
-  useEffect(() => {
-    localStorage.setItem("items", JSON.stringify(itemsInCart));
-  }, [itemsInCart]);
-
   const handleToCart = () => {
-    const itemToAdd = {
-      id: product.id,
-      name: product.product_name,
-      price: product.product_price,
-      image: product.product_image,
-      quantity: quantity,
-    };
-
-    // التحقق إذا كان المنتج موجودًا بالفعل في السلة
-    const existingItem = itemsInCart.find((item) => item.id === product.id);
-
-    if (existingItem) {
-      // تحديث الكمية إذا كان المنتج موجودًا
-      const updatedItems = itemsInCart.map((item) =>
-        item.id === product.id
-          ? { ...item, quantity: item.quantity + quantity }
-          : item
-      );
-      setItemsInCart(updatedItems);
-    } else {
-      // إضافة منتج جديد إلى السلة
-      setItemsInCart([...itemsInCart, itemToAdd]);
-    }
-
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);

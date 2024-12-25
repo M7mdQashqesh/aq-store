@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./header.css";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
@@ -8,6 +8,24 @@ const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [showCart, setShowCart] = useState(false);
   const navigate = useNavigate("");
+
+  useEffect(() => {
+    // Prevent scrolling when the cart is open
+    document.body.style.overflow = showCart ? "hidden" : "auto";
+    return () => {
+      // Cleanup to ensure scroll is enabled when the component unmounts
+      document.body.style.overflow = "auto";
+    };
+  }, [showCart]);
+
+  useEffect(() => {
+    // Prevent scrolling when the sidebar is open
+    document.body.style.overflow = showSidebar ? "hidden" : "auto";
+    return () => {
+      // Cleanup to ensure scroll is enabled when the component unmounts
+      document.body.style.overflow = "auto";
+    };
+  }, [showSidebar]);
 
   return (
     <header className="header">
@@ -52,8 +70,10 @@ const Header = () => {
             <p className="close-cart" onClick={() => setShowCart(!showCart)}>
               &times;
             </p>
-            <a href="/cart">Shopping cart</a>
-            <p>Your cart is empty</p>
+            <a href="/cart">
+              Shopping cart <sup>(0)</sup>
+            </a>
+            <p>Hi</p>
             <div>
               <div>
                 <span>Total: </span>
