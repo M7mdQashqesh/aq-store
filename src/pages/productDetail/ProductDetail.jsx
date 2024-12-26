@@ -39,7 +39,6 @@ const ProductDetail = () => {
         pImage: product.product_image,
         pQuantity: quantity,
         pPrice: product.product_price,
-        pDescription: product.Description,
       },
     ];
 
