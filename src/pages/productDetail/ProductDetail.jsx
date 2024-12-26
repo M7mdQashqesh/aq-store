@@ -10,6 +10,11 @@ const ProductDetail = () => {
   const { id } = useParams();
   const product = Products.find((p) => p.id === parseInt(id));
 
+  const [itemsInCart, setItemsInCart] = useState(() => {
+    const storedCart = localStorage.getItem("cart");
+    return storedCart ? JSON.parse(storedCart) : [];
+  });
+
   const [quantity, setQuantity] = useState(1);
   const [showNotification, setShowNotification] = useState(false);
 
@@ -24,6 +29,26 @@ const ProductDetail = () => {
   };
 
   const handleToCart = () => {
+    const updatedCart = [
+      ...itemsInCart,
+      {
+        id: product.id,
+        pName: product.product_name,
+        pImage: product.product_image,
+        pQuantity: quantity,
+        pPrice: product.product_price,
+        pDescription: product.Description,
+      },
+    ];
+
+    // تحديث السلة في state
+    setItemsInCart(updatedCart);
+
+    // تخزين السلة في localStorage
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+    console.log("Updated Cart:", itemsInCart); // للتأكد من أن المنتج أُضيف
+
     setShowNotification(true);
     setTimeout(() => {
       setShowNotification(false);
