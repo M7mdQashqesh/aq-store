@@ -48,7 +48,13 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <ShoppingCartOutlinedIcon className="cart" />
+        <div className="cart-container">
+          <ShoppingCartOutlinedIcon
+            className="cart"
+            onClick={() => navigate("/cart")}
+          />
+          <sup>(0)</sup>
+        </div>
       </div>
     </header>
   );

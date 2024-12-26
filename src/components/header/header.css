@@ -160,6 +160,12 @@ header.header .container .cart {
   cursor: pointer;
 }
 
+header.header .container .cart-container sup {
+  position: relative;
+  bottom: 10px;
+  font-size: 12px;
+}
+
 header.header .container .menu-bars {
   display: none;
 }

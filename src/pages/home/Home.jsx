@@ -3,6 +3,7 @@ import "./home.css";
 import { Products } from "../../../public/products";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
+import ProductItem from "../../components/productItem/ProductItem";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -55,22 +56,11 @@ const Home = () => {
           <h2>Top Picks</h2>
           <div className="productItems">
             {Products.slice(0, 4).map((product) => (
-              <div key={product.id} className="productItem">
-                <div className="image">
-                  <img src={product.product_image} alt="product" />
-                </div>
-                <div className="info">
-                  <span className="nameOfProduct">{product.product_name}</span>
-                  <span className="price">{product.product_price}</span>
-                </div>
-                <p className="description">{product.product_description}</p>
-                <button
-                    className="details"
-                    onClick={() => navigate(`/product/${product.id}`)}
-                  >
-                    View Details
-                  </button>
-              </div>
+              <ProductItem
+                key={product.id}
+                product={product}
+                navigate={navigate}
+              />
             ))}
           </div>
           <button className="show-all" onClick={() => navigate("/products")}>
