@@ -44,6 +44,10 @@
   }
 }
 
+.footer .top .container .col-two .icons a {
+  color: white;
+}
+
 .footer .top .container .col-two .icons i {
   padding: 8px;
   border-radius: 50%;

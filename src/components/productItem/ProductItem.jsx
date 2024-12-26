@@ -9,7 +9,7 @@ const ProductItem = ({ product, navigate }) => {
       </div>
       <div className="info">
         <span className="nameOfProduct">{product.product_name}</span>
-        <span className="price">{product.product_price}</span>
+        <span className="price">{product.product_price} ₪</span>
       </div>
       <p className="description">{product.product_description}</p>
       <button

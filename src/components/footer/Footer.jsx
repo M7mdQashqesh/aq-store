@@ -17,17 +17,19 @@ const Footer = () => {
           <div className="col-two">
             <h3>Contact Us</h3>
             <div className="icons">
-              <i className="fa-brands fa-whatsapp"></i>
-              <i className="fa-regular fa-envelope"></i>
+              <a href="https://wa.me/972598368442" target="_blank">
+                <i className="fa-brands fa-whatsapp"></i>
+              </a>
+              <a href="mailto:aqqashqesh@gmail.com" target="_blank">
+                <i className="fa-regular fa-envelope"></i>
+              </a>
             </div>
           </div>
         </div>
       </div>
 
       <div className="copyright">
-        <div className="container">
-        © 2024 AQ Store - All rights reserved.
-        </div>
+        <div className="container">© 2024 AQ Store - All rights reserved.</div>
       </div>
     </div>
   );

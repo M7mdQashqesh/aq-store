@@ -39,6 +39,7 @@ const ProductDetail = () => {
         pImage: product.product_image,
         pQuantity: quantity,
         pPrice: product.product_price,
+        pCategory: product.category,
       },
     ];
 
@@ -68,7 +69,7 @@ const ProductDetail = () => {
             />
           </div>
           <div className="details">
-            <h2 className="price">{product.product_price}</h2>
+            <h2 className="price">{product.product_price} ₪</h2>
             <h3 className="product-name">{product.product_name}</h3>
             <p className="description">{product.product_long_description}</p>
             <div className="quantity-container">
