@@ -7,6 +7,9 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  const cartLength = cart.length;
+
   const navigate = useNavigate("");
 
   useEffect(() => {
@@ -48,12 +51,9 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className="cart-container">
-          <ShoppingCartOutlinedIcon
-            className="cart"
-            onClick={() => navigate("/cart")}
-          />
-          <sup>(0)</sup>
+        <div className="cart-container" onClick={() => navigate("/cart")}>
+          <ShoppingCartOutlinedIcon className="cart" />
+          <sup>({cartLength})</sup>
         </div>
       </div>
     </header>

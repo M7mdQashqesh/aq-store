@@ -27,7 +27,7 @@ ProductItem.propTypes = {
     id: PropTypes.number.isRequired,
     product_image: PropTypes.string.isRequired,
     product_name: PropTypes.string.isRequired,
-    product_price: PropTypes.string.isRequired,
+    product_price: PropTypes.number.isRequired,
     product_description: PropTypes.string.isRequired,
   }).isRequired,
   navigate: PropTypes.func.isRequired,

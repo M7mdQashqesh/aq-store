@@ -2,13 +2,15 @@ import "./productDetail.css";
 import { Products } from "../../../public/products";
 import Header from "../../components/header/Header";
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../../components/footer/Footer";
 import Alert from "@mui/material/Alert";
+import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 
 const ProductDetail = () => {
   const { id } = useParams();
   const product = Products.find((p) => p.id === parseInt(id));
+  const navigate = useNavigate();
 
   const [itemsInCart, setItemsInCart] = useState(() => {
     const storedCart = localStorage.getItem("cart");
@@ -41,13 +43,9 @@ const ProductDetail = () => {
       },
     ];
 
-    // تحديث السلة في state
     setItemsInCart(updatedCart);
 
-    // تخزين السلة في localStorage
     localStorage.setItem("cart", JSON.stringify(updatedCart));
-
-    console.log("Updated Cart:", itemsInCart); // للتأكد من أن المنتج أُضيف
 
     setShowNotification(true);
     setTimeout(() => {
@@ -59,6 +57,10 @@ const ProductDetail = () => {
     <div className="product-details">
       <Header />
       <div className="container">
+        <div className="title" onClick={() => navigate("/products")}>
+          <ReplyAllIcon className="go-back" />
+          <span>Go Back</span>
+        </div>
         <div className="product">
           <div className="image">
             <img

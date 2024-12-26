@@ -156,7 +156,7 @@ header.header .container nav.navbar ul li a:hover {
   color: #0c7441;
 }
 
-header.header .container .cart {
+header.header .container .cart-container {
   cursor: pointer;
 }
 
