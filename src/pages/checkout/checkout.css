@@ -5,6 +5,12 @@
   margin: 50px auto;
 }
 
+@media (max-width: 767px) {
+  .checkout-page > .container {
+    flex-direction: column;
+  }
+}
+
 .checkout-page > .container > div {
   background-color: white;
   padding: 20px;

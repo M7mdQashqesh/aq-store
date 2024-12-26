@@ -231,7 +231,12 @@ const Checkout = () => {
             </div>
           </div>
           <div className="btns">
-            <button type="button" disabled={loading} className="back-btn">
+            <button
+              type="button"
+              disabled={loading}
+              className="back-btn"
+              onClick={() => navigate("/cart")}
+            >
               Back
             </button>
             <button type="submit" disabled={loading} className="confirm-btn">
