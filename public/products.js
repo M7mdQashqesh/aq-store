@@ -1,5 +1,5 @@
 export const Products = [
-  {
+  /* {
     id: 1,
     product_image:
       "https://dentalprod.com/cdn/shop/products/gpF1.jpg?v=1652854698",
@@ -8,7 +8,7 @@ export const Products = [
     product_description: "gutta percha Diadent",
     product_long_description:
       "The Dental Pro 3000 is designed to provide unparalleled oral hygiene. Its ergonomic design ensures maximum comfort during use, while advanced bristles reach deep between teeth to remove plaque and bacteria. Suitable for daily use, it promotes healthier gums and a cleaner smile, making it a must-have for your oral care routine.",
-  },
+  }, */
   {
     id: 2,
     product_image:
@@ -19,7 +19,7 @@ export const Products = [
     product_long_description:
       "The OrthoCare Kit is a comprehensive solution for individuals with braces or other orthodontic appliances. It includes specialized tools that make cleaning around brackets and wires easy and effective. With its compact and portable design, the kit ensures a hassle-free way to maintain oral hygiene while undergoing orthodontic treatment.",
   },
-  {
+  /* {
     id: 3,
     product_image:
       "https://dentalprod.com/cdn/shop/products/gpF3.jpg?v=1652854717",
@@ -118,5 +118,5 @@ export const Products = [
     product_description: "Paperpoint Diadent",
     product_long_description:
       "EnamelGuard is a specialized product designed to protect and strengthen tooth enamel. Its advanced formula minimizes sensitivity and provides long-term protection against decay. Ideal for daily use, it keeps your teeth strong and healthy while maintaining their natural shine.",
-  },
+  }, */
 ];
