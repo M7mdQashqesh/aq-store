@@ -38,16 +38,16 @@ const Header = () => {
               <img src="/sidebar-logo.svg" alt="logo" />
             </li>
             <li>
-              <a href="/">Home</a>
+              <a onClick={() => navigate("/")}>Home</a>
             </li>
             <li>
-              <a href="/products">All Products</a>
+              <a onClick={() => navigate("/products")}>All Products</a>
             </li>
             <li>
-              <a href="/about-us">About Us</a>
+              <a onClick={() => navigate("/about-us")}>About Us</a>
             </li>
             <li>
-              <a href="/contact-us">Contact</a>
+              <a onClick={() => navigate("/contact-us")}>Contact</a>
             </li>
           </ul>
         </nav>

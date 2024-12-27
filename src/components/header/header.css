@@ -141,6 +141,7 @@ header.header .container nav.navbar ul li a {
   font-weight: 600;
   color: #1881c3;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 @media (max-width: 767px) {
