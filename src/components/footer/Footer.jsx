@@ -17,7 +17,18 @@ const Footer = () => {
           <div className="col-two">
             <h3>Contact Us</h3>
             <div className="icons">
-              <a href="https://wa.me/972598368442" target="_blank">
+              <a
+                className="abed-whats"
+                href="https://wa.me/972598368442"
+                target="_blank"
+              >
+                <i className="fa-brands fa-whatsapp"></i>
+              </a>
+              <a
+                className="ayham-whats"
+                href="https://wa.me/972597153227"
+                target="_blank"
+              >
                 <i className="fa-brands fa-whatsapp"></i>
               </a>
               <a href="mailto:aqqashqesh@gmail.com" target="_blank">

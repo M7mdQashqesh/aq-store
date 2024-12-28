@@ -8,7 +8,12 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const [cart, setCart] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate("");
+
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -41,7 +46,7 @@ const Cart = () => {
         <div className="no-empty-cart">
           <div className="container">
             <div className="title">
-              <span onClick={() => navigate("/products")}>All Products</span>
+              <span onClick={() => navigateToPage("/products")}>All Products</span>
               <span> \ </span>
               <span>Cart</span>
             </div>
@@ -79,7 +84,7 @@ const Cart = () => {
                 <h2>Total:</h2>
                 <div className="checkout">
                   <h2>{calcTotal()} ₪</h2>
-                  <span onClick={() => navigate("/cart/checkout")}>
+                  <span onClick={() => navigateToPage("/cart/checkout")}>
                     Process to checkout
                   </span>
                 </div>
@@ -92,10 +97,10 @@ const Cart = () => {
           <div className="container">
             <p>Your cart is empty</p>
             <div className="btns">
-              <button onClick={() => navigate("/products")}>
+              <button onClick={() => navigateToPage("/products")}>
                 Continue Shopping
               </button>
-              <button onClick={() => navigate("/")}>Home Page</button>
+              <button onClick={() => navigateToPage("/")}>Home Page</button>
             </div>
           </div>
           {showNotification && (

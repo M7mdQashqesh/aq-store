@@ -6,7 +6,12 @@ import Footer from "../../components/footer/Footer";
 import ProductItem from "../../components/productItem/ProductItem";
 
 const Home = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate("");
+
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
 
   return (
     <div className="Home">
@@ -59,11 +64,11 @@ const Home = () => {
               <ProductItem
                 key={product.id}
                 product={product}
-                navigate={navigate}
+                navigate={navigateToPage}
               />
             ))}
           </div>
-          <button className="show-all" onClick={() => navigate("/products")}>
+          <button className="show-all" onClick={() => navigateToPage("/products")}>
             Show All Products
           </button>
         </div>

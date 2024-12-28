@@ -12,6 +12,11 @@ const Header = () => {
 
   const navigate = useNavigate("");
 
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+
   useEffect(() => {
     // Prevent scrolling when the sidebar is open
     document.body.style.overflow = showSidebar ? "hidden" : "auto";
@@ -29,7 +34,7 @@ const Header = () => {
           onClick={() => setShowSidebar(!showSidebar)}
         />
         <div className="logo">
-          <img src="/logo.svg" alt="logo" onClick={() => navigate("/")} />
+          <img src="/logo.svg" alt="logo" onClick={() => navigateToPage("/")} />
         </div>
         <nav className={showSidebar ? "navbar show" : "navbar"}>
           <ul className={showSidebar ? "show" : ""}>
@@ -38,20 +43,17 @@ const Header = () => {
               <img src="/sidebar-logo.svg" alt="logo" />
             </li>
             <li>
-              <a onClick={() => navigate("/")}>Home</a>
+              <a onClick={() => navigateToPage("/")}>Home</a>
             </li>
             <li>
-              <a onClick={() => navigate("/products")}>All Products</a>
+              <a onClick={() => navigateToPage("/products")}>All Products</a>
             </li>
             <li>
-              <a onClick={() => navigate("/about-us")}>About Us</a>
-            </li>
-            <li>
-              <a onClick={() => navigate("/contact-us")}>Contact</a>
+              <a onClick={() => navigateToPage("/contact-us")}>Contact Us</a>
             </li>
           </ul>
         </nav>
-        <div className="cart-container" onClick={() => navigate("/cart")}>
+        <div className="cart-container" onClick={() => navigateToPage("/cart")}>
           <ShoppingCartOutlinedIcon className="cart" />
           <sup>({cartLength})</sup>
         </div>

@@ -7,8 +7,14 @@ import { useState } from "react";
 import ProductItem from "../../components/productItem/ProductItem";
 
 const AllProducts = () => {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const navigate = useNavigate("");
+
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+  
 
   // Filter products based on search term
   const filteredProducts = searchTerm
@@ -22,7 +28,7 @@ const AllProducts = () => {
       <Header />
       <div className="container">
         <div className="title">
-          <span onClick={() => navigate("/")}>Home</span>
+          <span onClick={() => navigateToPage("/")}>Home</span>
           <span> \ </span>
           <span>All Products</span>
         </div>
@@ -47,7 +53,7 @@ const AllProducts = () => {
                   <ProductItem
                     key={product.id}
                     product={product}
-                    navigate={navigate}
+                    navigate={navigateToPage}
                   />
                 );
               })

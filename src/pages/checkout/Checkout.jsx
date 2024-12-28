@@ -6,7 +6,6 @@ import Header from "../../components/header/Header";
 import "./checkout.css";
 
 const Checkout = () => {
-  const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
   const [notification, setNotification] = useState({
@@ -22,7 +21,13 @@ const Checkout = () => {
     address: "",
     clinicName: "",
   });
+  const navigate = useNavigate("");
 
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+  
   // EmailJS configuration
   const EMAIL_SERVICE_ID = "service_u14hvbc";
   const EMAIL_TEMPLATE_ID = "template_1kwmbxt";
@@ -135,7 +140,7 @@ const Checkout = () => {
 
       // Navigate to home page after a short delay
       setTimeout(() => {
-        navigate("/");
+        navigateToPage("/");
       }, 2000);
     } catch (error) {
       console.error("Error sending order:", error);
@@ -187,7 +192,7 @@ const Checkout = () => {
                 id="cities"
               >
                 {cities.map((city, index) => (
-                  <option key={index} value={city}>
+                  <option key={index + city} value={city}>
                     {city}
                   </option>
                 ))}
@@ -235,7 +240,7 @@ const Checkout = () => {
               type="button"
               disabled={loading}
               className="back-btn"
-              onClick={() => navigate("/cart")}
+              onClick={() => navigateToPage("/cart")}
             >
               Back
             </button>
@@ -247,8 +252,8 @@ const Checkout = () => {
         <div className="summary">
           <h2>Order Summary</h2>
           <div className="orders">
-            {cart.map((product) => (
-              <div key={product.id} className="order">
+            {cart.map((product,index) => (
+              <div key={product.id+index} className="order">
                 <span>x{product.pQuantity}</span>
                 <span>{product.pName}</span>
                 <span>{(product.pQuantity * product.pPrice).toFixed(1)} ₪</span>

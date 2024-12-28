@@ -15,13 +15,22 @@ const Contact = () => {
           <div className="image">
             <img src="/logo.svg" alt="logo" />
           </div>
-          <a
-            href="https://wa.me/972598368442"
-            className="whatsapp-button"
-            target="_blank"
-          >
-            <i className="fab fa-whatsapp"></i> Chat with Us
-          </a>
+          <div className="btns">
+            <a
+              href="https://wa.me/972598368442"
+              className="whatsapp-button"
+              target="_blank"
+            >
+              <i className="fab fa-whatsapp"></i> Eng.Abed Qashqeesh
+            </a>
+            <a
+              href="https://wa.me/972597153227"
+              className="whatsapp-button"
+              target="_blank"
+            >
+              <i className="fab fa-whatsapp"></i> Ayham Qashqeesh
+            </a>
+          </div>
         </div>
       </div>
     </div>

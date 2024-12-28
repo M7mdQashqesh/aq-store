@@ -44,8 +44,68 @@
   }
 }
 
+@keyframes showContact {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .footer .top .container .col-two .icons a {
   color: white;
+  position: relative;
+}
+
+.footer .top .container .col-two .icons a:not(:last-child)::before {
+  position: absolute;
+  top: -44px;
+  width: 151px;
+  font-size: 14px;
+  background-color: #25d366;
+  color: white;
+  padding: 5px 10px;
+  z-index: 10;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 1px 4px 10px 1px rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  opacity: 0;
+}
+
+.footer .top .container .col-two .icons a:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: -15px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: #25d366 transparent transparent transparent;
+  z-index: 11;
+  opacity: 0;
+}
+
+.footer .top .container .col-two .icons a.abed-whats:hover::before {
+  animation: showContact 0.6s forwards;
+  content: "Eng.Abed Qashqeesh";
+  left: -130px;
+}
+
+.footer .top .container .col-two .icons a.abed-whats:hover:after {
+  left: 9px;
+  animation: showContact 0.6s forwards;
+}
+
+.footer .top .container .col-two .icons a.ayham-whats:hover::before {
+  animation: showContact 0.6s forwards;
+  content: "Ayham Qashqeesh";
+  left: -130px;
+}
+
+.footer .top .container .col-two .icons a.ayham-whats:hover:after {
+  left: 9px;
+  animation: showContact 0.6s forwards;
 }
 
 .footer .top .container .col-two .icons i {

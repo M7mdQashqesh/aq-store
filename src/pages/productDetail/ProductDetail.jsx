@@ -10,7 +10,12 @@ import ReplyAllIcon from "@mui/icons-material/ReplyAll";
 const ProductDetail = () => {
   const { id } = useParams();
   const product = Products.find((p) => p.id === parseInt(id));
-  const navigate = useNavigate();
+  const navigate = useNavigate("");
+
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
 
   const [itemsInCart, setItemsInCart] = useState(() => {
     const storedCart = localStorage.getItem("cart");
@@ -57,7 +62,7 @@ const ProductDetail = () => {
     <div className="product-details">
       <Header />
       <div className="container">
-        <div className="title" onClick={() => navigate("/products")}>
+        <div className="title" onClick={() => navigateToPage("/products")}>
           <ReplyAllIcon className="go-back" />
           <span>Go Back</span>
         </div>
