@@ -2,7 +2,8 @@ import "./addProduct.css";
 import { useRef, useState } from "react";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import Sidebar from "../../components/sidebar/Sidebar";
+import axios from "axios";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState("");
@@ -61,11 +62,16 @@ const AddProduct = () => {
     try {
       let imageUrl = "";
       if (productImage) {
-        // تحميل الصورة إلى Firebase Storage
-        const storage = getStorage();
-        const storageRef = ref(storage, `products/${productImage.name}`);
-        await uploadBytes(storageRef, productImage);
-        imageUrl = await getDownloadURL(storageRef); // الحصول على رابط الصورة
+        // 1️⃣ رفع الصورة إلى Cloudinary
+        const formData = new FormData();
+        formData.append("file", productImage);
+        formData.append("upload_preset", "aqstore");
+
+        const response = await axios.post(
+          "https://api.cloudinary.com/v1_1/dtvwphm7h/image/upload",
+          formData
+        );
+        imageUrl = response.data.secure_url; // الحصول على رابط الصورة
       }
       // إضافة منتج جديد إلى مجموعة "products" في Firestore
       const docRef = await addDoc(collection(db, "products"), {
@@ -90,46 +96,45 @@ const AddProduct = () => {
 
   return (
     <div className="add-product-page">
-      <div className="container">
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Product name"
-            value={productName}
-            onChange={(e) => setProductName(e.target.value)}
-          />
-          <input
-            type="number"
-            placeholder="Product price"
-            value={productPrice}
-            onChange={(e) => setProductPrice(e.target.value)}
-          />
-          <input
-            type="file"
-            onChange={(e) => setProductImage(e.target.files[0])}
-            ref={fileInputRef}
-          />
-          <textarea
-            placeholder="Product short description"
-            value={productShortDescription}
-            onChange={(e) => setProductShortDescription(e.target.value)}
-          />
-          <textarea
-            placeholder="Product long description"
-            value={productLongDescription}
-            onChange={(e) => setProductLongDescription(e.target.value)}
-          />
+      <Sidebar />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Product name"
+          value={productName}
+          onChange={(e) => setProductName(e.target.value)}
+        />
+        <input
+          type="number"
+          placeholder="Product price"
+          value={productPrice}
+          onChange={(e) => setProductPrice(e.target.value)}
+        />
+        <input
+          type="file"
+          onChange={(e) => setProductImage(e.target.files[0])}
+          ref={fileInputRef}
+        />
+        <textarea
+          placeholder="Product short description"
+          value={productShortDescription}
+          onChange={(e) => setProductShortDescription(e.target.value)}
+        />
+        <textarea
+          placeholder="Product long description"
+          value={productLongDescription}
+          onChange={(e) => setProductLongDescription(e.target.value)}
+        />
 
-          {/* عرض رسالة الخطأ */}
-          {error && <p className="error-message">{error}</p>}
+        {/* عرض رسالة الخطأ */}
+        {error && <p className="error-message">{error}</p>}
 
-          <input
-            type="submit"
-            value={loading ? "Adding..." : "Add Product"}
-            disabled={loading}
-          />
-        </form>
-      </div>
+        <input
+          type="submit"
+          value={loading ? "Adding..." : "Add Product"}
+          disabled={loading}
+        />
+      </form>
     </div>
   );
 };

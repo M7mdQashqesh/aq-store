@@ -1,0 +1,66 @@
+.add-product-page {
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .add-product-page {
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px;
+  }
+}
+
+.add-product-page form {
+  margin: 20px auto;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.add-product-page form input {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.add-product-page form input:not(:first-child) {
+  margin-top: 20px;
+}
+
+.add-product-page form input[type="file"] {
+  border: none;
+  margin-left: -9px;
+}
+
+.add-product-page form textarea {
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  resize: none;
+}
+
+.add-product-page form textarea:last-of-type {
+  height: 200px;
+}
+
+.add-product-page form .error-message {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+  margin-top: 15px;
+}
+
+.add-product-page form input[type="submit"] {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-product-page form input[type="submit"]:hover {
+  background-color: #dedede;
+}
