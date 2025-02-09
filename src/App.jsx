@@ -7,13 +7,15 @@ import Cart from "./pages/cart/Cart";
 import Checkout from "./pages/checkout/Checkout";
 import ProductDetail from "./pages/productDetail/ProductDetail";
 import AddProduct from "./dashboard/addProduct/AddProduct";
+import Login from "./dashboard/login/Login";
 
 function App() {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/products" element={<AllProducts />} />
           <Route path="/contact-us" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />

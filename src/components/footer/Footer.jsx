@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import "./footer.css";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="footer">
       <div className="top">
@@ -39,8 +41,10 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="copyright">
-        <div className="container">© 2024 AQ Store - All rights reserved.</div>
+      <div className="copyright" >
+        <div className="container" onClick={() => navigate("/")}>
+          © 2024 AQ Store - All rights reserved.
+        </div>
       </div>
     </div>
   );

@@ -60,7 +60,7 @@ const Checkout = () => {
   const calcTotal = () => {
     return cart
       .reduce((total, item) => {
-        return total + Number(item.pPrice) * Number(item.pQuantity);
+        return total + Number(item.price) * Number(item.quantity);
       }, 0)
       .toFixed(1);
   };
@@ -77,9 +77,9 @@ const Checkout = () => {
     return cart
       .map(
         (item) => `
-      Product: ${item.pName}
-      Quantity: ${item.pQuantity}
-      Total Price: ${(item.pQuantity * item.pPrice).toFixed(1)} ₪
+      Product: ${item.name}
+      Quantity: ${item.quantity}
+      Total Price: ${(item.quantity * item.price).toFixed(1)} ₪
     `
       )
       .join("\n");
@@ -254,9 +254,9 @@ const Checkout = () => {
           <div className="orders">
             {cart.map((product,index) => (
               <div key={product.id+index} className="order">
-                <span>x{product.pQuantity}</span>
-                <span>{product.pName}</span>
-                <span>{(product.pQuantity * product.pPrice).toFixed(1)} ₪</span>
+                <span>x{product.quantity}</span>
+                <span>{product.name}</span>
+                <span>{(product.quantity * product.price).toFixed(1)} ₪</span>
               </div>
             ))}
           </div>

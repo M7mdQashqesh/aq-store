@@ -1,0 +1,30 @@
+.login-page {
+  display: flex;
+  height: 100dvh;
+}
+
+@media (max-width: 991px) {
+  .login-page {
+    display: block;
+  }
+}
+
+.login-page > div {
+  flex-basis: 50%;
+  padding: 50px;
+  align-content: center;
+}
+
+.login-page > div.image {
+  background-color: white;
+}
+
+@media (max-width: 991px) {
+  .login-page > div.image {
+    display: none;
+  }
+}
+
+.login-page > div.image img {
+  max-width: 100%;
+}

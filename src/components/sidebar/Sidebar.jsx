@@ -5,18 +5,34 @@ import AddHomeIcon from "@mui/icons-material/AddHome";
 import LogoutIcon from "@mui/icons-material/Logout";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useState(false);
+  const navigate = useNavigate();
 
-  const toggleSidebar = () => {
-    setShowSidebar(!showSidebar);
+  const handleShowSidebar = () => {
+    setShowSidebar(true);
+  };
+
+  const handleHiddenSidebar = () => {
+    setShowSidebar(false);
+  };
+
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    navigateToPage("/");
   };
 
   return (
     <div className="sidebar-component">
-      <MenuIcon onClick={toggleSidebar} className="menu-icon" />
-      <nav className={showSidebar ? "show" : ""} onClick={toggleSidebar}>
+      <MenuIcon onClick={handleShowSidebar} className="menu-icon" />
+      <nav className={showSidebar ? "show" : ""} onClick={handleHiddenSidebar}>
         <ul className={showSidebar ? "show" : ""}>
           <li>
             <StorefrontIcon />
@@ -26,11 +42,11 @@ const Sidebar = () => {
             <ManageAccountsIcon />
             Manage Products
           </li>
-          <li>
+          <li onClick={() => navigateToPage("/home")}>
             <AddHomeIcon />
             Go To Home
           </li>
-          <li>
+          <li onClick={handleLogout}>
             <LogoutIcon />
             Log Out
           </li>

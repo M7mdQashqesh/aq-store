@@ -5,6 +5,7 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -25,6 +26,13 @@ const Header = () => {
       document.body.style.overflow = "auto";
     };
   }, [showSidebar]);
+
+  useEffect(() => {
+    const userEmail = localStorage.getItem("user");
+    if (userEmail) {
+      setIsLoggingIn(true);
+    }
+  }, []);
 
   return (
     <header className="header">
@@ -51,6 +59,13 @@ const Header = () => {
             <li>
               <a onClick={() => navigateToPage("/contact-us")}>Contact Us</a>
             </li>
+            {isLoggingIn && (
+              <li>
+                <a onClick={() => navigateToPage("/dashboard/addProduct")}>
+                  Dashboard
+                </a>
+              </li>
+            )}
           </ul>
         </nav>
         <div className="cart-container" onClick={() => navigateToPage("/cart")}>

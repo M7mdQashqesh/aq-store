@@ -31,6 +31,17 @@
   line-height: 1.7;
 }
 
+.footer .top .container .col-one a.login {
+  display: block;
+  margin-top: 10px;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.footer .top .container .col-one a.login:hover {
+  text-decoration: underline;
+}
+
 .footer .top .container .col-two .icons {
   display: flex;
   align-items: center;
@@ -127,4 +138,8 @@
   padding: 15px 0;
   text-align: center;
   font-weight: 600;
+}
+
+.footer .copyright .container {
+  cursor: pointer;
 }

@@ -18,6 +18,12 @@
   width: 80%;
 }
 
+@media (max-width:991px) {
+  .add-product-page form {
+    width: 100%;
+  }
+}
+
 .add-product-page form input {
   padding: 10px;
   border-radius: 5px;

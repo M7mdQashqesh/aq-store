@@ -68,7 +68,10 @@ const Home = () => {
               />
             ))}
           </div>
-          <button className="show-all" onClick={() => navigateToPage("/products")}>
+          <button
+            className="show-all"
+            onClick={() => navigateToPage("/products")}
+          >
             Show All Products
           </button>
         </div>
