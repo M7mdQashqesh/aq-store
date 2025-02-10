@@ -1,0 +1,68 @@
+.features {
+  margin-top: 50px;
+}
+
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 30px;
+  background-color: white;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .features .container {
+    margin: 0 auto;
+    width: fit-content;
+    background-color: unset;
+  }
+}
+
+.features .container .feature {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.features .container .feature i {
+  font-size: 30px;
+  color: #2887bf;
+}
+
+.features .container .feature .info {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.features .container .feature .info::before {
+  content: "";
+  position: absolute;
+  height: 75%;
+  width: 1px;
+  background-color: rgba(128, 128, 128, 0.5);
+  right: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.features .container .feature.last-feature .info::before {
+  all: unset;
+}
+
+@media (max-width: 991px) {
+  .features .container .feature .info::before {
+    all: unset;
+  }
+}
+
+.features .container .feature .info span:first-of-type {
+  font-weight: 600;
+}
+
+.features .container .feature .info span:last-of-type {
+  font-size: 14px;
+  color: #777;
+  line-height: 2;
+}

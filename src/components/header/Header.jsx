@@ -51,7 +51,7 @@ const Header = () => {
               <img src="/sidebar-logo.svg" alt="logo" />
             </li>
             <li>
-              <a onClick={() => navigateToPage("/")}>Home</a>
+              <a onClick={() => navigateToPage("/home")}>Home</a>
             </li>
             <li>
               <a onClick={() => navigateToPage("/products")}>All Products</a>
@@ -64,6 +64,11 @@ const Header = () => {
                 <a onClick={() => navigateToPage("/dashboard/addProduct")}>
                   Dashboard
                 </a>
+              </li>
+            )}
+            {!isLoggingIn && (
+              <li>
+                <a className="login" onClick={() => navigateToPage("/")}>Login</a>
               </li>
             )}
           </ul>

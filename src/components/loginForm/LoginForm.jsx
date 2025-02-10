@@ -1,19 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./loginForm.css";
 import bcrypt from "bcryptjs";
 import { useNavigate } from "react-router-dom";
+import { Snackbar, Alert } from "@mui/material";
 
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [clicked, setClicked] = useState(false);
   const [showInputs, setShowInputs] = useState(false);
+  const [snackbar, setSnackbar] = useState({
+    open: false,
+    message: "",
+    severity: "info",
+  });
   const navigate = useNavigate();
 
   const navigatePage = (path) => {
     window.scrollTo(0, 0);
     navigate(path);
   };
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+
+    if (user) {
+      navigatePage("/home");
+    }
+  });
 
   const handleLoginAsAdmin = async (e) => {
     e.preventDefault();
@@ -22,13 +36,13 @@ const LoginForm = () => {
 
     const storedHashedPassword = import.meta.env.VITE_PASSWORD;
 
-    if (!storedEmail || !storedHashedPassword) {
-      alert("Error: Admin credentials are not set!");
-      return;
-    }
-
     if (email !== storedEmail) {
-      alert("Check your email or password to log in.");
+      setSnackbar({
+        open: true,
+        message: "Check your email or password to log in.",
+        severity: "error",
+      });
+
       return;
     }
 
@@ -36,21 +50,22 @@ const LoginForm = () => {
 
     if (match) {
       localStorage.setItem("user", JSON.stringify({ email }));
-      alert("Login Successful!");
       navigatePage("/home");
     } else {
-      alert("Check your email or password to log in.");
+      setSnackbar({
+        open: true,
+        message: "Check your email or password to log in.",
+        severity: "error",
+      });
     }
   };
 
   const handleClicked = (e) => {
     if (clicked === true) {
       handleLoginAsAdmin(e);
-      console.log("login");
     } else {
       setClicked(true);
       setShowInputs(true);
-      console.log("show");
     }
   };
 
@@ -59,28 +74,34 @@ const LoginForm = () => {
     navigatePage("/home");
   };
 
+  const handleCloseSnackbar = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
+
   return (
     <div className="login-form-component">
       <h1>Welcome!</h1>
       <form>
-        <div className={`inputs ${showInputs ? "admin" : ""}`}>
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Your password"
-            required
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
+        {showInputs && (
+          <div className={`inputs ${showInputs ? "admin" : ""}`}>
+            <input
+              type="email"
+              name="email"
+              placeholder="Your email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Your password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+        )}
 
         <input
           type="submit"
@@ -89,6 +110,19 @@ const LoginForm = () => {
         />
         <input type="submit" value="Login as admin" onClick={handleClicked} />
       </form>
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={3000}
+        onClose={handleCloseSnackbar}
+      >
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+        >
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 };

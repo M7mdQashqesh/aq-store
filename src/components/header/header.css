@@ -157,6 +157,16 @@ header.header .container nav.navbar ul li a:hover {
   color: #0c7441;
 }
 
+header.header .container nav.navbar ul li a.login {
+  margin-left: 100px;
+}
+
+@media (max-width: 767px) {
+  header.header .container nav.navbar ul li a.login {
+    margin-left: 0;
+  }
+}
+
 header.header .container .cart-container {
   cursor: pointer;
 }
