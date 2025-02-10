@@ -66,7 +66,7 @@ const AllProducts = () => {
         <div className="products">
           {filteredProducts.length !== 0 ? (
             filteredProducts
-              .sort((a, b) => a.product_name.localeCompare(b.product_name))
+              .sort((a, b) => a.name.localeCompare(b.name))
               .map((product) => {
                 return (
                   <ProductItem
