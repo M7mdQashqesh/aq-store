@@ -1,9 +1,10 @@
 import "./addProduct.css";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { db } from "../../firebase";
 import { addDoc, collection } from "firebase/firestore";
 import Sidebar from "../../components/sidebar/Sidebar";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddProduct = () => {
   const [productName, setProductName] = useState("");
@@ -14,6 +15,20 @@ const AddProduct = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const navigateToPage = (path) => {
+    window.scrollTo(0, 0);
+    navigate(path);
+  };
+
+  useEffect(() => {
+    const user = localStorage.getItem("user");
+    if (!user) {
+      navigateToPage("/");
+    }
+  });
 
   const clearFields = () => {
     setProductName("");
