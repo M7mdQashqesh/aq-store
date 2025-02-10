@@ -34,11 +34,11 @@ const Sidebar = () => {
       <MenuIcon onClick={handleShowSidebar} className="menu-icon" />
       <nav className={showSidebar ? "show" : ""} onClick={handleHiddenSidebar}>
         <ul className={showSidebar ? "show" : ""}>
-          <li>
+          <li onClick={() => navigateToPage("/dashboard/addProduct")}>
             <StorefrontIcon />
             Add Product
           </li>
-          <li>
+          <li onClick={() => navigateToPage("/dashboard/manageProducts")}>
             <ManageAccountsIcon />
             Manage Products
           </li>

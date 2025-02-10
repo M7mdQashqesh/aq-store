@@ -38,7 +38,7 @@ const AllProducts = () => {
   // Filter products based on search term
   const filteredProducts = searchTerm
     ? products.filter((product) =>
-        product.product_name.toLowerCase().includes(searchTerm.toLowerCase())
+        product.name.toLowerCase().includes(searchTerm.toLowerCase())
       )
     : products;
 
