@@ -42,7 +42,6 @@ const ManageProducts = () => {
         price: doc.data().price,
         image: doc.data().image,
         shortDescription: doc.data().shortDescription,
-        longDescription: doc.data().longDescription,
       }));
       setProducts(productList);
     };
@@ -73,6 +72,7 @@ const ManageProducts = () => {
     <div className="manage-products">
       <Sidebar />
       <div className="products">
+        <h2>Products</h2>
         {products.map((product) => (
           <div key={product.id} className="product">
             <div className="image">

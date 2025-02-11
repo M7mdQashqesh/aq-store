@@ -24,6 +24,10 @@
   }
 }
 
+.manage-products .products > h2 {
+  margin-bottom: 10px;
+}
+
 .manage-products .products .product {
   display: flex;
   flex-wrap: wrap;

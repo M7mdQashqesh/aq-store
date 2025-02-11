@@ -11,7 +11,6 @@ const AddProduct = () => {
   const [productPrice, setProductPrice] = useState("");
   const [productImage, setProductImage] = useState(null);
   const [productShortDescription, setProductShortDescription] = useState("");
-  const [productLongDescription, setProductLongDescription] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const fileInputRef = useRef(null);
@@ -35,7 +34,6 @@ const AddProduct = () => {
     setProductPrice("");
     setProductImage(null);
     setProductShortDescription("");
-    setProductLongDescription("");
     fileInputRef.current.value = ""; // إعادة تعيين حقل الصورة
     setError("");
   };
@@ -55,10 +53,6 @@ const AddProduct = () => {
     }
     if (!productShortDescription.trim()) {
       setError("Product short description is required.");
-      return false;
-    }
-    if (!productLongDescription.trim()) {
-      setError("Product long description is required.");
       return false;
     }
 
@@ -94,7 +88,6 @@ const AddProduct = () => {
         price: parseFloat(productPrice),
         image: imageUrl,
         shortDescription: productShortDescription,
-        longDescription: productLongDescription,
       });
       console.log("Product added with ID: ", docRef.id);
       // مسح الحقول بعد الإضافة
@@ -134,11 +127,6 @@ const AddProduct = () => {
           placeholder="Product short description"
           value={productShortDescription}
           onChange={(e) => setProductShortDescription(e.target.value)}
-        />
-        <textarea
-          placeholder="Product long description"
-          value={productLongDescription}
-          onChange={(e) => setProductLongDescription(e.target.value)}
         />
 
         {/* عرض رسالة الخطأ */}

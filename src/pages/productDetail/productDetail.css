@@ -42,7 +42,7 @@
   font-size: 25px;
 }
 
-.product-details > .container .product-info > div.details .long-description {
+.product-details > .container .product-info > div.details .short-description {
   margin-top: 20px;
   line-height: 1.7;
 }

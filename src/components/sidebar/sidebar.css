@@ -1,3 +1,17 @@
+.sidebar-component {
+  background-color: #f5f5f5;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 4px 10px 1px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 991px) {
+  .sidebar-component {
+    background-color: none;
+    border-right: none;
+    box-shadow: none;
+  }
+}
+
 .sidebar-component .menu-icon {
   display: none;
 }
@@ -20,13 +34,18 @@
 
 .sidebar-component nav ul {
   width: 270px;
-  height: 100dvh;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 1px 4px 10px 1px rgba(0, 0, 0, 0.1);
+  min-height: 100dvh;
   padding: 20px;
-  background-color: #f5f5f5;
   position: relative;
   z-index: 1000;
+}
+
+@media (max-width: 991px) {
+  .sidebar-component nav ul {
+    background-color: #f5f5f5;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 4px 10px 1px rgba(0, 0, 0, 0.1);
+  }
 }
 
 @keyframes hideSidebar {

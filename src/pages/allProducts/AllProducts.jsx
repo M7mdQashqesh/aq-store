@@ -28,7 +28,6 @@ const AllProducts = () => {
         price: doc.data().price, // تعديل هنا ليتوافق مع الحقل 'price'
         image: doc.data().image, // تعديل هنا ليتوافق مع الحقل 'image'
         shortDescription: doc.data().shortDescription, // تعديل هنا ليتوافق مع الحقل 'shortDescription'
-        longDescription: doc.data().longDescription, // تعديل هنا ليتوافق مع الحقل 'longDescription'
       }));
       setProducts(productList);
     };

@@ -63,7 +63,7 @@ const ProductDetails = () => {
           <div className="details">
             <p className="price">{product.price}₪</p>
             <h2>{product.name}</h2>
-            <p className="long-description">{product.longDescription}</p>
+            <p className="short-description">{product.shortDescription}</p>
             <label>Quantity:</label>
             <div className="quantity">
               <div className="increase" onClick={increaseQuantity}>
