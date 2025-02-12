@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
 import "./loginForm.css";
 import bcrypt from "bcryptjs";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Snackbar, Alert } from "@mui/material";
 
@@ -20,14 +20,6 @@ const LoginForm = () => {
     window.scrollTo(0, 0);
     navigate(path);
   };
-
-  useEffect(() => {
-    const user = localStorage.getItem("user");
-
-    if (user) {
-      navigatePage("/home");
-    }
-  });
 
   const handleLoginAsAdmin = async (e) => {
     e.preventDefault();

@@ -42,7 +42,7 @@ const Header = () => {
           onClick={() => setShowSidebar(!showSidebar)}
         />
         <div className="logo">
-          <img src="/logo.svg" alt="logo" onClick={() => navigateToPage("/")} />
+          <img src="/logo.svg" alt="logo" onClick={() => navigateToPage("/home")} />
         </div>
         <nav className={showSidebar ? "navbar show" : "navbar"}>
           <ul className={showSidebar ? "show" : ""}>
